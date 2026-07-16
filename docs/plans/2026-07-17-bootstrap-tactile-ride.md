@@ -21,7 +21,8 @@ reversibility by documenting candidates rather than creating platform code.
 - Modify: `README.md`, `AGENTS.md`
 - Create: `docs/PRD.md`, `docs/GOALS.md`, `docs/REQUIREMENTS.md`,
   `docs/ARCHITECTURE.md`, `docs/ROADMAP.md`, `docs/IMPLEMENTATION_PLAN.md`,
-  `docs/TEST_PLAN.md`, `docs/SAFETY.md`, `docs/DECISIONS.md`
+  `docs/TEST_PLAN.md`, `docs/SAFETY.md`, `docs/DECISIONS.md`,
+  `docs/BACKLOG.md`
 - Create: `firmware/{app,boards,tests}/.gitkeep`,
   `electronics/{schematics,pcb,bom}/.gitkeep`, and
   `mechanical/{cad,prototypes,exports}/.gitkeep`

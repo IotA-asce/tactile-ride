@@ -49,8 +49,8 @@ and BLE transport will be kept behind narrow interfaces when firmware begins.
 
 ## Repository layout
 
-- [`docs/`](docs/) — product definition, architecture, testing, roadmap, ADRs,
-  and backlog.
+- [`docs/`](docs/) — product definition, architecture, testing, roadmap,
+  [`backlog`](docs/BACKLOG.md), and ADRs.
 - [`firmware/`](firmware/) — future application, board definitions, and tests;
   no firmware is implemented yet.
 - [`electronics/`](electronics/) — future schematics, PCB work, and bill of

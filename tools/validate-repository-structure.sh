@@ -47,6 +47,7 @@ required_files=(
   docs/GOALS.md
   docs/REQUIREMENTS.md
   docs/ARCHITECTURE.md
+  docs/BACKLOG.md
   docs/ROADMAP.md
   docs/IMPLEMENTATION_PLAN.md
   docs/TEST_PLAN.md
