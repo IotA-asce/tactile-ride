@@ -1,4 +1,5 @@
 #include <errno.h>
+#include <stddef.h>
 
 #include <tactile_ride/consumer_report.h>
 #include <tactile_ride/media_controller.h>
