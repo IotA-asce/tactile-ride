@@ -1,3 +1,7 @@
+mainmenu "TactileRide Phase 1"
+
+source "Kconfig.zephyr"
+
 menu "TactileRide Phase 1"
 
 config TACTILE_RIDE_DEBOUNCE_MS
