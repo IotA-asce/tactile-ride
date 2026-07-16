@@ -1,0 +1,7 @@
+tests:
+  tactile_ride.logic:
+    platform_allow:
+      - native_sim
+    tags:
+      - tactile_ride
+      - unit

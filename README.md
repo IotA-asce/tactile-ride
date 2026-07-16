@@ -20,10 +20,10 @@ requirements.
 
 ## Current status
 
-**Bootstrap and planning only.** This repository contains requirements,
-decision records, a test strategy, and project scaffolding. It does not contain
-BLE firmware, a validated electrical design, a final enclosure, or evidence of
-on-road suitability.
+**Phase 1 implementation in progress.** Zephyr firmware and host-independent
+logic tests are being added for a desktop and bench BLE HID proof of concept.
+There is still no validated electrical design, physical control wiring, final
+enclosure, Android test result, or evidence of on-road suitability.
 
 ## V1 scope
 
@@ -41,18 +41,19 @@ PCB files, and final enclosure CAD.
 
 ## High-level architecture
 
-The current candidate architecture is a low-power BLE HID Consumer Control
-peripheral on an nRF52840-class development board. Firmware framework selection
-is deliberately reversible: Zephyr RTOS is the preferred initial candidate but
-has not been committed as a permanent choice. Hardware-specific inputs, power,
-and BLE transport will be kept behind narrow interfaces when firmware begins.
+The Phase 1 architecture is a BLE HID Consumer Control peripheral on the
+Seeed Studio XIAO BLE reference target (`xiao_ble/nrf52840`) using Zephyr v4.4.0.
+The reference target is not a production-board decision. Raw inputs, debounce
+and repeat logic, media actions, Consumer Page report construction, BLE state,
+and power policy are separate modules; hardware GPIO assignments remain open.
 
 ## Repository layout
 
 - [`docs/`](docs/) — product definition, architecture, testing, roadmap,
   [`backlog`](docs/BACKLOG.md), and ADRs.
-- [`firmware/`](firmware/) — future application, board definitions, and tests;
-  no firmware is implemented yet.
+- [`firmware/`](firmware/) — Zephyr application, board policy, and
+  hardware-independent tests. See [`firmware/app/README.md`](firmware/app/README.md)
+  and the [manual BLE HID verification guide](docs/MANUAL_BLE_HID_VERIFICATION.md).
 - [`electronics/`](electronics/) — future schematics, PCB work, and bill of
   materials.
 - [`mechanical/`](mechanical/) — future CAD, prototypes, and exports.

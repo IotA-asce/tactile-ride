@@ -7,7 +7,7 @@ dates.
 | Phase | Outcome | Entry conditions | Exit acceptance criteria | Status |
 | --- | --- | --- | --- | --- |
 | 0 | Requirements and architecture | Repository bootstrap | Requirements, ADRs, safety, test plan, and backlog reviewed | Pending review |
-| 1 | Desktop BLE HID proof of concept | Board and framework selected by ADR | Five consumer-control actions and reconnection are observed on a bench host | Pending |
+| 1 | Desktop BLE HID proof of concept | ADRs 0004 and 0005 select the Phase 1 framework and reference target | Five consumer-control actions and reconnection are observed on a bench host | In progress; bench evidence pending |
 | 2 | Breadboard tactile controller | Phase 1 evidence | Five physical inputs are mapped and documented on a battery-powered bench prototype | Pending |
 | 3 | Static motorcycle ergonomic mock-up | Phase 2 evidence and safe mock-up plan | Reach, differentiation, and accidental-activation observations are recorded without riding | Pending |
 | 4 | Battery and sleep optimisation | Phase 2 power baseline | Measured power states and wake/reconnect behaviour meet a documented prototype target | Pending |

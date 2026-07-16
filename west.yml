@@ -1,0 +1,16 @@
+# Reproducible Phase 1 Zephyr workspace manifest.
+#
+# Zephyr v4.4.0 resolves to this immutable upstream commit. Its imported
+# manifest pins the required HAL and module revisions.
+manifest:
+  version: "1.2"
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+  projects:
+    - name: zephyr
+      remote: zephyrproject-rtos
+      revision: 684c9e8f32e4373a21098559f748f06915f950c9
+      import: true
+  self:
+    path: tactile-ride

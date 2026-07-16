@@ -1,41 +1,49 @@
 # Architecture
 
-## Current architecture
+## Phase 1 architecture
 
-TactileRide is planned as a battery-powered BLE HID Consumer Control peripheral.
-The physical control layer detects five deliberate input actions. A firmware
-input layer converts them into logical media actions, and a transport layer
-publishes standard HID Consumer Control reports to a paired host.
+TactileRide Phase 1 is a desktop and bench BLE HID Consumer Control peripheral
+on Zephyr v4.4.0. Its reference target is the Seeed Studio XIAO BLE using
+`xiao_ble/nrf52840`; that target is not a production-board selection. The proof
+of concept sends one-byte Consumer Page input reports for five actions and does
+not need a mobile application.
 
 ```text
-Tactile controls -> input abstraction -> media-action mapping -> BLE HID Consumer Control -> host
-                         |                       |
-                         +--- power state --------+
+Raw input -> button input -> debounce/repeat -> logical media action -> Consumer report -> HID GATT notify -> host
+                                    |                    |                 |
+                                    +--- app orchestrator-+--- BLE state ---+
+                                                        |
+                                                  power-policy boundary
 ```
 
-This is a proposed boundary, not implemented firmware. The framework evaluation
-ADR records why Zephyr is a candidate rather than an irreversible commitment.
+The app orchestrator receives logical action samples from the input abstraction;
+it never sees a GPIO number. The reference board has no switch overlay because
+the physical switch circuit and assignments are not yet documented. A
+development-only auto-demo can exercise the same input path at compile time.
 
 ## Confirmed decisions
 
 - Use BLE HID Consumer Control instead of touchscreen automation for V1.
+- Use Zephyr v4.4.0 for Phase 1; revisit the framework before later hardware
+  work if evidence warrants it.
+- Use `xiao_ble/nrf52840` as the Phase 1 reference target only.
 - Keep hardware-specific code behind clear input, power, and transport
-  interfaces when implementation begins.
+  interfaces.
 - Organise firmware, electronics, mechanical, documentation, and tooling as
   separate repository areas.
 - Start with a battery-powered bench prototype rather than motorcycle power.
 
 ## Current assumptions
 
-- An nRF52840-class development board is a suitable family to evaluate.
-- The selected firmware framework will provide BLE, HID, power-management, and
-  test support without a companion application.
+- A one-byte input report can express the five required Consumer Page usages as
+  independent bits, followed by an all-zero release report.
+- Bond persistence and reconnection can use Zephyr Bluetooth settings support;
+  host behaviour still needs bench evidence.
 
 ## Open questions
 
-- Zephyr versus lighter alternatives, board selection, pairing policy,
-  reconnection strategy, input debouncing, power-state model, and test host
-  coverage.
+- Exact Android host behaviour, pairing-reset UX, physical switch circuit,
+  GPIO assignment, reconnect latency, power-state model, and test-host coverage.
 
 ## Deferred ideas
 
@@ -44,7 +52,9 @@ ADR records why Zephyr is a candidate rather than an irreversible commitment.
 
 ## Acceptance criteria
 
-- The first firmware design documents module boundaries and HID report behaviour
-  before implementation.
-- Board-specific code is isolated from media-action logic.
-- Architecture changes are made through a new or superseding ADR.
+- Build the app for the reference target and run the hardware-independent test
+  suite.
+- Record every actual Android, YouTube Music, locked-screen, flash, and
+  reconnection observation separately from the intended procedure.
+- Keep board-specific code isolated from media-action logic and update ADRs for
+  material changes.

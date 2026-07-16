@@ -1,0 +1,21 @@
+#ifndef TACTILE_RIDE_MEDIA_ACTION_H_
+#define TACTILE_RIDE_MEDIA_ACTION_H_
+
+#include <stdbool.h>
+
+enum media_action {
+	MEDIA_ACTION_VOLUME_INCREMENT = 0,
+	MEDIA_ACTION_VOLUME_DECREMENT,
+	MEDIA_ACTION_PLAY_PAUSE,
+	MEDIA_ACTION_NEXT_TRACK,
+	MEDIA_ACTION_PREVIOUS_TRACK,
+	MEDIA_ACTION_COUNT,
+};
+
+static inline bool media_action_is_volume(enum media_action action)
+{
+	return action == MEDIA_ACTION_VOLUME_INCREMENT ||
+	       action == MEDIA_ACTION_VOLUME_DECREMENT;
+}
+
+#endif /* TACTILE_RIDE_MEDIA_ACTION_H_ */

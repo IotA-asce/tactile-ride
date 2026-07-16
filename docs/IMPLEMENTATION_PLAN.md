@@ -2,19 +2,21 @@
 
 ## Current state
 
-This repository is at the documentation bootstrap. No BLE firmware, schematic,
-PCB layout, enclosure CAD, or physical test result exists yet.
+Phase 1 BLE HID implementation is in progress. Zephyr v4.4.0 and the XIAO BLE
+reference target are recorded in ADRs 0004 and 0005. There is no schematic, PCB
+layout, enclosure CAD, physical switch wiring, or physical test result yet. The
+reference-target build completes locally and in Linux CI, where the logic suite
+also passes. These automated results are not physical or host-compatibility
+evidence.
 
 ## Next increments
 
-1. Select a development board against the criteria in ADR 0005 and record the
-   evidence in a new ADR or decision update.
-2. Evaluate Zephyr and at least one lighter alternative against BLE HID support,
-   test tooling, power-management support, documentation, and reproducibility.
-3. Define a minimal desktop BLE HID proof-of-concept test procedure before adding
-   application code.
-4. Implement only the selected proof-of-concept path, including one action at a
-   time and a documented host-observation method.
+1. Implement and test Consumer Page report construction, debounce, press
+   handling, release reports, volume repeat, and disconnected handling.
+2. Build the Zephyr application for `xiao_ble/nrf52840`.
+3. Run the documented Android bench procedure and record observations rather
+   than inferring compatibility from a successful build.
+4. Review framework and board evidence before adding physical switch wiring.
 5. Add a five-input breadboard controller only after the transport behaviour is
    demonstrated on the bench.
 
@@ -28,13 +30,14 @@ PCB layout, enclosure CAD, or physical test result exists yet.
 
 ## Current assumptions
 
-- A desktop proof of concept reduces uncertainty before mechanical work.
-- Zephyr is the preferred initial candidate but not a settled framework choice.
+- A desktop proof of concept reduces uncertainty before physical-control work.
+- Zephyr v4.4.0 and the XIAO BLE reference target are adequate for Phase 1 but
+  remain reversible before a reference hardware release.
 
 ## Open questions
 
-- Board, framework, test host, HID report details, input components, battery,
-  and power targets.
+- Test host, Android behaviour, HID host details, input components, battery,
+  power targets, and GPIO assignments.
 
 ## Deferred ideas
 
@@ -43,7 +46,6 @@ PCB layout, enclosure CAD, or physical test result exists yet.
 
 ## Acceptance criteria for the next task
 
-- A board-selection record exists with reproducibility and power-measurement
-  rationale.
-- The task plan names the test host and expected five-action observations.
-- No firmware is added until that selection and plan are reviewed.
+- The reference-target build and logic tests pass.
+- The manual verification guide names the Android observations to record.
+- Unperformed hardware tests remain explicitly pending.
