@@ -63,6 +63,11 @@ jobs:
           python -m pip install -r zephyr/scripts/requirements-run-test.txt
           west sdk install -d "$ZEPHYR_SDK_INSTALL_DIR" -t arm-zephyr-eabi
 
+      - name: Install native simulator build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes gcc-multilib
+
       - name: Run hardware-independent logic tests
         run: |
           west twister -T tactile-ride/firmware/tests/logic -p native_sim --inline-logs
