@@ -64,7 +64,9 @@ environmental fixtures. Riding tests are not part of the current plan.
 
 ## Current automated evidence
 
-The pinned Zephyr workspace has built `xiao_ble/nrf52840` locally. The
-`native_sim` Twister scenario is statically filtered on the current macOS host
-because Zephyr requires Linux for that platform; it is configured to execute in
-Linux CI. Neither result is BLE host or Android bench evidence.
+The pinned Zephyr workspace has built `xiao_ble/nrf52840` locally and in the
+[Linux firmware-validation workflow](https://github.com/IotA-asce/tactile-ride/actions/runs/29529088670).
+That workflow also passed the seven-case `native_sim` Twister suite. The same
+scenario is statically filtered on the current macOS host because Zephyr
+requires Linux for that platform; the filtered local run is not a test pass.
+Neither automated result is BLE host or Android bench evidence.

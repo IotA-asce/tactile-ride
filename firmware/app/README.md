@@ -51,9 +51,9 @@ To reproduce a pull request before it merges, check out its branch in
 
 | Target | Role | Status |
 | --- | --- | --- |
-| `xiao_ble/nrf52840` | Seeed Studio XIAO BLE Phase 1 reference target | Built locally; Linux CI is configured |
+| `xiao_ble/nrf52840` | Seeed Studio XIAO BLE Phase 1 reference target | Built locally and in Linux CI |
 | `xiao_ble/nrf52840/sense` | Optional XIAO BLE Sense Zephyr variant | Not built or tested by this project |
-| `native_sim` | Host target for hardware-independent logic tests | Configured for Linux CI; statically filtered on macOS |
+| `native_sim` | Host target for hardware-independent logic tests | Passed in Linux CI; statically filtered on macOS |
 
 The XIAO target is a reference board only. There are intentionally no control
 GPIO assignments or switch overlays in this phase.
@@ -89,8 +89,8 @@ west twister -T tactile-ride/firmware/tests/logic -p native_sim --inline-logs
 ```
 
 Zephyr executes `native_sim` tests on Linux. The current macOS host statically
-filters this platform, so a filtered local run is not a test pass; use the
-Linux CI result once available.
+filters this platform, so its filtered local run is not a test pass. The Linux
+CI workflow has executed the suite successfully.
 
 Follow the [manual BLE HID verification guide](../../docs/MANUAL_BLE_HID_VERIFICATION.md)
 for the separate, controlled Android bench procedure. A successful build or

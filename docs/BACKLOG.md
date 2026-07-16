@@ -19,7 +19,7 @@ Dependencies are prerequisites, not proof that the dependent work is complete.
 | --- | --- | --- | --- | --- |
 | FW-001 | Use Zephyr for the reversible Phase 1 proof of concept. | Zephyr v4.4.0 is pinned; ADR 0004 records scope and reconsideration point. | ADR 0004 | Complete for Phase 1 |
 | FW-002 | Build desktop BLE HID proof of concept. | Five actions and reconnect observation are recorded using the reference board and host. | FW-001, EL-001 | In progress; bench evidence pending |
-| FW-003 | Define hardware-independent input mapping. | Interface and unit tests isolate button logic from GPIO assignments. | FW-001 | In progress; Linux CI execution pending |
+| FW-003 | Define hardware-independent input mapping. | Interface and unit tests isolate button logic from GPIO assignments. | FW-001 | Complete for Phase 1 |
 
 ## Electronics
 
