@@ -44,6 +44,8 @@ required_files=(
   SECURITY.md
   LICENSES/README.md
   firmware/app/README.md
+  firmware/boards/README.md
+  firmware/tests/logic/testcase.yaml
   docs/PRD.md
   docs/GOALS.md
   docs/REQUIREMENTS.md
@@ -66,8 +68,6 @@ required_files=(
   .github/ISSUE_TEMPLATE/hardware_test_report.md
   .github/ISSUE_TEMPLATE/design_proposal.md
   .github/pull_request_template.md
-  firmware/boards/.gitkeep
-  firmware/tests/.gitkeep
   electronics/schematics/.gitkeep
   electronics/pcb/.gitkeep
   electronics/bom/.gitkeep
