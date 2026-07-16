@@ -99,7 +99,7 @@ git commit -m "chore: add project governance"
 **Files:**
 
 - Create: `tools/validate-repository-structure.sh`,
-  `.github/workflows/docs.yml`, `.markdownlint.json`
+  `.github/workflows/docs.yml`
 
 **Step 1: Write the failing validation cases**
 
