@@ -4,7 +4,9 @@
 
 Phase 1 BLE HID implementation is in progress. Zephyr v4.4.0 and the XIAO BLE
 reference target are recorded in ADRs 0004 and 0005. There is no schematic, PCB
-layout, enclosure CAD, physical switch wiring, or physical test result yet.
+layout, enclosure CAD, physical switch wiring, or physical test result yet. The
+reference-target build now completes locally; Linux CI must execute the logic
+suite before automated acceptance is recorded.
 
 ## Next increments
 

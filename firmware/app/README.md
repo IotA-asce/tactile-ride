@@ -35,7 +35,9 @@ python -m pip install west==1.5.0
 west init -l tactile-ride
 west update
 west zephyr-export
-python -m pip install -r zephyr/scripts/requirements.txt
+python -m pip install -r zephyr/scripts/requirements-base.txt
+python -m pip install -r zephyr/scripts/requirements-build-test.txt
+python -m pip install -r zephyr/scripts/requirements-run-test.txt
 cd zephyr
 west sdk install -d ../zephyr-sdk-1.0.1 -t arm-zephyr-eabi
 cd ..
@@ -49,9 +51,9 @@ To reproduce a pull request before it merges, check out its branch in
 
 | Target | Role | Status |
 | --- | --- | --- |
-| `xiao_ble/nrf52840` | Seeed Studio XIAO BLE Phase 1 reference target | Built in CI |
+| `xiao_ble/nrf52840` | Seeed Studio XIAO BLE Phase 1 reference target | Built locally; Linux CI is configured |
 | `xiao_ble/nrf52840/sense` | Optional XIAO BLE Sense Zephyr variant | Not built or tested by this project |
-| `native_sim` | Host target for hardware-independent logic tests | Run in Linux CI |
+| `native_sim` | Host target for hardware-independent logic tests | Configured for Linux CI; statically filtered on macOS |
 
 The XIAO target is a reference board only. There are intentionally no control
 GPIO assignments or switch overlays in this phase.
@@ -86,8 +88,13 @@ Run the hardware-independent suite from `<workspace>`:
 west twister -T tactile-ride/firmware/tests/logic -p native_sim --inline-logs
 ```
 
-The `native_sim` test run is executed in Linux CI. On hosts where Zephyr cannot
-run native unit tests, use the CI result and do not claim a local test pass.
+Zephyr executes `native_sim` tests on Linux. The current macOS host statically
+filters this platform, so a filtered local run is not a test pass; use the
+Linux CI result once available.
+
+Follow the [manual BLE HID verification guide](../../docs/MANUAL_BLE_HID_VERIFICATION.md)
+for the separate, controlled Android bench procedure. A successful build or
+logic test is not Android, media-app, flashing, pairing, or reconnect evidence.
 
 ## Configuration points
 

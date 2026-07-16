@@ -52,7 +52,8 @@ and power policy are separate modules; hardware GPIO assignments remain open.
 - [`docs/`](docs/) — product definition, architecture, testing, roadmap,
   [`backlog`](docs/BACKLOG.md), and ADRs.
 - [`firmware/`](firmware/) — Zephyr application, board policy, and
-  hardware-independent tests. See [`firmware/app/README.md`](firmware/app/README.md).
+  hardware-independent tests. See [`firmware/app/README.md`](firmware/app/README.md)
+  and the [manual BLE HID verification guide](docs/MANUAL_BLE_HID_VERIFICATION.md).
 - [`electronics/`](electronics/) — future schematics, PCB work, and bill of
   materials.
 - [`mechanical/`](mechanical/) — future CAD, prototypes, and exports.

@@ -1,0 +1,73 @@
+name: Firmware validation
+
+on:
+  pull_request:
+    paths:
+      - "firmware/**"
+      - "west.yml"
+      - ".github/workflows/firmware.yml"
+  push:
+    branches:
+      - main
+      - "feat/**"
+    paths:
+      - "firmware/**"
+      - "west.yml"
+      - ".github/workflows/firmware.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build XIAO BLE and run logic tests
+    runs-on: ubuntu-latest
+    env:
+      ZEPHYR_SDK_INSTALL_DIR: ${{ github.workspace }}/zephyr-sdk-1.0.1
+
+    steps:
+      - name: Check out TactileRide below the west workspace
+        uses: actions/checkout@v6
+        with:
+          path: tactile-ride
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Restore Zephyr dependencies and SDK
+        uses: actions/cache@v4
+        with:
+          path: |
+            .west
+            zephyr
+            modules
+            bootloader
+            zephyr-sdk-1.0.1
+            ~/.cache/pip
+          key: zephyr-${{ runner.os }}-v4.4.0-sdk-1.0.1-${{ hashFiles('tactile-ride/west.yml') }}
+
+      - name: Initialise the pinned west workspace
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install west==1.5.0
+          if [ ! -d .west ]; then
+            west init -l tactile-ride
+          fi
+          west update
+          west zephyr-export
+          python -m pip install -r zephyr/scripts/requirements-base.txt
+          python -m pip install -r zephyr/scripts/requirements-build-test.txt
+          python -m pip install -r zephyr/scripts/requirements-run-test.txt
+          west sdk install -d "$ZEPHYR_SDK_INSTALL_DIR" -t arm-zephyr-eabi
+
+      - name: Run hardware-independent logic tests
+        run: |
+          west twister -T tactile-ride/firmware/tests/logic -p native_sim --inline-logs
+
+      - name: Build the XIAO BLE reference target
+        run: |
+          west build -s tactile-ride/firmware/app -b xiao_ble/nrf52840 \
+            -d build/xiao_ble --pristine

@@ -17,15 +17,15 @@ Dependencies are prerequisites, not proof that the dependent work is complete.
 
 | ID | Objective | Acceptance criteria | Dependencies | Status |
 | --- | --- | --- | --- | --- |
-| FW-001 | Use Zephyr for the reversible Phase 1 proof of concept. | Zephyr v4.4.0 is pinned; ADR 0004 records scope and reconsideration point. | ADR 0004 | In progress |
+| FW-001 | Use Zephyr for the reversible Phase 1 proof of concept. | Zephyr v4.4.0 is pinned; ADR 0004 records scope and reconsideration point. | ADR 0004 | Complete for Phase 1 |
 | FW-002 | Build desktop BLE HID proof of concept. | Five actions and reconnect observation are recorded using the reference board and host. | FW-001, EL-001 | In progress; bench evidence pending |
-| FW-003 | Define hardware-independent input mapping. | Interface and unit tests isolate button logic from GPIO assignments. | FW-001 | In progress |
+| FW-003 | Define hardware-independent input mapping. | Interface and unit tests isolate button logic from GPIO assignments. | FW-001 | In progress; Linux CI execution pending |
 
 ## Electronics
 
 | ID | Objective | Acceptance criteria | Dependencies | Status |
 | --- | --- | --- | --- | --- |
-| EL-001 | Maintain the Phase 1 reference-board decision. | ADR 0005 records `xiao_ble/nrf52840`; no final-board or GPIO claim is made. | ADR 0005 | In progress |
+| EL-001 | Maintain the Phase 1 reference-board decision. | ADR 0005 records `xiao_ble/nrf52840`; no final-board or GPIO claim is made. | ADR 0005 | Complete for Phase 1 |
 | EL-002 | Define five-input breadboard experiment. | Switch candidates, wiring plan, and safe bench procedure are documented. | FW-002, ER-001 | Planned |
 | EL-003 | Define prototype battery and charging requirements. | Chemistry, protection assumptions, measurement plan, and unresolved hazards are recorded. | PO-001 | Planned |
 

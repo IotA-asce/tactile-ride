@@ -61,3 +61,10 @@ environmental fixtures. Riding tests are not part of the current plan.
    workspace manifest and toolchain.
 3. A successful build is not reported as Android, YouTube Music, locked-screen,
    flash, or reconnection evidence.
+
+## Current automated evidence
+
+The pinned Zephyr workspace has built `xiao_ble/nrf52840` locally. The
+`native_sim` Twister scenario is statically filtered on the current macOS host
+because Zephyr requires Linux for that platform; it is configured to execute in
+Linux CI. Neither result is BLE host or Android bench evidence.

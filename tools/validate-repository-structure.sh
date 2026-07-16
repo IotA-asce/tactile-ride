@@ -43,9 +43,15 @@ required_files=(
   CODE_OF_CONDUCT.md
   SECURITY.md
   LICENSES/README.md
+  west.yml
+  .github/workflows/firmware.yml
   firmware/app/README.md
+  firmware/app/CMakeLists.txt
+  firmware/app/Kconfig
+  firmware/app/prj.conf
   firmware/boards/README.md
   firmware/tests/logic/testcase.yaml
+  firmware/tests/logic/src/main.c
   docs/PRD.md
   docs/GOALS.md
   docs/REQUIREMENTS.md
@@ -54,6 +60,7 @@ required_files=(
   docs/ROADMAP.md
   docs/IMPLEMENTATION_PLAN.md
   docs/TEST_PLAN.md
+  docs/MANUAL_BLE_HID_VERIFICATION.md
   docs/SAFETY.md
   docs/DECISIONS.md
   docs/adr/0001-repository-structure.md
