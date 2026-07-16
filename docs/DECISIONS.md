@@ -7,8 +7,8 @@
 | 0001 | Separate documentation, firmware, electronics, mechanical, tooling, and community areas. | Accepted |
 | 0002 | Use BLE HID Consumer Control rather than touchscreen automation for V1. | Accepted |
 | 0003 | Do not require a mobile app for V1. | Accepted |
-| 0004 | Evaluate Zephyr against lighter alternatives before implementation. | Proposed |
-| 0005 | Select the development board through documented criteria. | Accepted |
+| 0004 | Use Zephyr v4.4.0 for the reversible Phase 1 proof of concept. | Accepted for Phase 1 |
+| 0005 | Use XIAO BLE `xiao_ble/nrf52840` as the Phase 1 reference target. | Accepted for Phase 1 |
 | 0006 | Start with a battery-powered prototype before motorcycle electrical integration. | Accepted |
 | 0007 | Keep software, hardware, and documentation licensing candidates separate pending review. | Proposed |
 

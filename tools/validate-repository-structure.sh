@@ -43,6 +43,7 @@ required_files=(
   CODE_OF_CONDUCT.md
   SECURITY.md
   LICENSES/README.md
+  firmware/app/README.md
   docs/PRD.md
   docs/GOALS.md
   docs/REQUIREMENTS.md
@@ -65,7 +66,6 @@ required_files=(
   .github/ISSUE_TEMPLATE/hardware_test_report.md
   .github/ISSUE_TEMPLATE/design_proposal.md
   .github/pull_request_template.md
-  firmware/app/.gitkeep
   firmware/boards/.gitkeep
   firmware/tests/.gitkeep
   electronics/schematics/.gitkeep

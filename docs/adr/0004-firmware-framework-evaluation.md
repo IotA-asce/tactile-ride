@@ -2,34 +2,41 @@
 
 ## Status
 
-Proposed
+Accepted for Phase 1
 
 ## Context
 
-The likely MCU class has BLE support, and Zephyr RTOS is the preferred initial
-candidate. The project does not yet have a board, HID proof of concept, power
-measurements, or maintainability evidence.
+The likely MCU class has BLE support, and Zephyr RTOS was the preferred initial
+candidate. The Phase 1 task requires a testable desktop and bench BLE HID proof
+of concept while retaining the ability to reconsider the framework before later
+hardware work.
 
 ## Decision
 
-Evaluate Zephyr against lighter alternatives before creating application
-firmware. Compare documented BLE HID Consumer Control support, board support,
-power-management facilities, test/debug workflow, build reproducibility,
-licensing, community maintenance, and contributor accessibility. Record the
-result in a superseding ADR.
+Use Zephyr v4.4.0, pinned by `west.yml` to commit
+`684c9e8f32e4373a21098559f748f06915f950c9`, for Phase 1. Zephyr provides the
+official BLE HID peripheral sample used as a service-shape reference, the
+verified XIAO board target, a reproducible manifest, and ztest/twister support
+for the hardware-independent logic.
+
+This is a Phase 1 implementation decision, not a permanent framework lock for
+all future TactileRide hardware.
 
 ## Alternatives
 
-- Adopt Zephyr immediately without evaluation.
 - Use a vendor SDK directly.
 - Use an Arduino-style framework or another lightweight RTOS/framework.
+- Delay firmware until a broader framework comparison has completed.
 
 ## Consequences
 
-The first implementation is delayed until comparison evidence exists, reducing
-the risk of embedding a reversible choice throughout the repository.
+Phase 1 gets a documented, current Zephyr path rather than blocking on a broad
+comparison. The app keeps media logic independent of Zephyr GPIO APIs and board
+pins, which limits framework coupling. A future alternative still needs its own
+evidence and superseding decision record.
 
 ## Follow-up work
 
-Select a candidate development board, define a desktop HID proof-of-concept test,
-and document results for at least Zephyr and one lighter alternative.
+Build and test the Phase 1 proof of concept, record actual host observations,
+and revisit the framework selection before production-oriented hardware or a
+release build.
