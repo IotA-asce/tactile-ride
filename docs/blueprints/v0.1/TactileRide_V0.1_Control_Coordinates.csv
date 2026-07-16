@@ -1,0 +1,6 @@
+Control,X_mm,Y_mm,External_cap_size
+Volume rocker,9.5,22.0,11.5 x 31.0 mm
+Play/Pause,31.0,22.0,dia 18.0 mm
+Next,48.0,33.0,18.0 x 10.5 mm
+Previous,48.0,11.0,18.0 x 10.5 mm
+Status LED,31.0,36.7,dia 3.0 mm

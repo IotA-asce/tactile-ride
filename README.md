@@ -50,7 +50,8 @@ and power policy are separate modules; hardware GPIO assignments remain open.
 ## Repository layout
 
 - [`docs/`](docs/) — product definition, architecture, testing, roadmap,
-  [`backlog`](docs/BACKLOG.md), and ADRs.
+  [`backlog`](docs/BACKLOG.md), ADRs, and the [V0.1 preliminary blueprint
+  sources](docs/blueprints/v0.1/README.md).
 - [`firmware/`](firmware/) — Zephyr application, board policy, and
   hardware-independent tests. See [`firmware/app/README.md`](firmware/app/README.md)
   and the [manual BLE HID verification guide](docs/MANUAL_BLE_HID_VERIFICATION.md).

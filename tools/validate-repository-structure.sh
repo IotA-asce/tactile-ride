@@ -61,6 +61,9 @@ required_files=(
   docs/IMPLEMENTATION_PLAN.md
   docs/TEST_PLAN.md
   docs/MANUAL_BLE_HID_VERIFICATION.md
+  docs/blueprints/v0.1/README.md
+  docs/blueprints/v0.1/TactileRide_V0.1_Control_Coordinates.csv
+  docs/blueprints/v0.1/TactileRide_V0.1_Front_Panel.svg
   docs/SAFETY.md
   docs/DECISIONS.md
   docs/adr/0001-repository-structure.md
@@ -78,8 +81,13 @@ required_files=(
   electronics/schematics/.gitkeep
   electronics/pcb/.gitkeep
   electronics/bom/.gitkeep
+  electronics/bom/v0.1/TactileRide_V0.1_Provisional_BOM.csv
+  electronics/prototypes/v0.1/README.md
+  electronics/prototypes/v0.1/TactileRide_V0.1_Wiring.svg
   mechanical/cad/.gitkeep
   mechanical/prototypes/.gitkeep
+  mechanical/prototypes/v0.1/README.md
+  mechanical/prototypes/v0.1/TactileRide_V0.1_Reference_Model.scad
   mechanical/exports/.gitkeep
 )
 
