@@ -1,0 +1,39 @@
+menu "TactileRide Phase 1"
+
+config TACTILE_RIDE_DEBOUNCE_MS
+	int "Input debounce interval in milliseconds"
+	range 1 1000
+	default 30
+	help
+	  Consecutive raw samples must remain unchanged for this interval before a
+	  logical press or release is emitted.
+
+config TACTILE_RIDE_VOLUME_REPEAT_DELAY_MS
+	int "Held-volume repeat delay in milliseconds"
+	range 1 10000
+	default 400
+	help
+	  Delay after the debounced volume press before repeat begins.
+
+config TACTILE_RIDE_VOLUME_REPEAT_INTERVAL_MS
+	int "Held-volume repeat interval in milliseconds"
+	range 100 10000
+	default 250
+	help
+	  Interval between held-volume actions. The default caps repeat to four
+	  actions per second.
+
+config TACTILE_RIDE_DEV_AUTO_DEMO
+	bool "Enable development-only synthetic input demo"
+	default n
+	help
+	  Generate a repeating sequence through the normal input abstraction. This
+	  is disabled by default and must not be treated as a physical-control test.
+
+config TACTILE_RIDE_DEV_AUTO_DEMO_INTERVAL_MS
+	int "Development demo delay after each release in milliseconds"
+	depends on TACTILE_RIDE_DEV_AUTO_DEMO
+	range 100 60000
+	default 2000
+
+endmenu
