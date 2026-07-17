@@ -1,0 +1,11 @@
+Item,Description,Qty,Status,Notes
+1,Seeed XIAO nRF52840,1,REFERENCE,21 x 17.8 mm; USB-C; onboard LiPo charger
+2,Momentary sealed switches,5 actions,OPEN,Two switches under volume rocker; select after force testing
+3,Custom button caps / carrier,1 set,PARAMETRIC,ASA/PETG caps; optional TPU membrane
+4,1S protected LiPo,1,OPEN,Maximum allocated envelope 32 x 22 x 6 mm
+5,SPST power switch,1,OPEN,Recessed to avoid accidental activation
+6,Switch PCB or perfboard,1,PROVISIONAL,50 x 36 x 1.6 mm allocated envelope
+7,M3 shell screws + inserts,4,REFERENCE,Heat-set brass inserts; final length after shell split
+8,M4 clamp hardware,2 sets,REFERENCE,Locknuts; do not over-tighten printed clamp
+9,TPU/silicone gasket,1,TARGET,1.2 mm nominal; not validated for ingress rating
+10,Enclosure filament,~60 g,REFERENCE,PETG fit prototype; ASA for UV/heat after validation
